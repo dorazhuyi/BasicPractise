@@ -2,10 +2,8 @@
 #include <cstdlib>
 #include <time.h>
 
-
 using namespace std;
 
-// try figuring this one out
 int main()
 {
     int n = 10;
@@ -13,19 +11,19 @@ int main()
     srand(time(NULL));
 
     /* Create Array */
+
     for(int i = 0; i < 10; i++)
     {
         a[i] = rand()%10;
         cout << a[i];
     }
     cout << endl;
-    // <<<<<<< HEAD
-    // mergeTest
-    // =======
+
     /* Sort */
     for(int i = 1; i < n; i++)
     {
-        while(a[j] > a[j-1])
+        int j = i;
+        while(a[j-1] > a[j] && j > 0)
         {
             a[j] ^= a[j-1];
             a[j-1] ^= a[j];
@@ -33,7 +31,7 @@ int main()
         }
     }
     /* Display */
-    for(i = 0; i < n; i++)
+    for(int i = 0; i < n; i++)
     {
        cout << a[i];
     }

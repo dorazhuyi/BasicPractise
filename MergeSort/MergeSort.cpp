@@ -52,7 +52,7 @@ void mergesort(int* array, int p, int r)
 int main()
 {
     int* a = new int[10];
-    //srand(time(nullptr));
+    //srand(time(nullptr)); // <- what it does???
     srand(time(NULL));
     for(int i= 0; i< 10; i++)
     {

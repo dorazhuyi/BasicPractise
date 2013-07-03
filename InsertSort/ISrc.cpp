@@ -3,6 +3,28 @@
 
 using namespace std;
 
+void insert(int* array, int i)
+{
+    int j = i - 1;
+    int key = array[i];
+    while( j > -1 && key < array[j] )
+    {
+	array[j+1] = array[j];
+	j--;
+    }
+    array[j+1] = key;
+}
+
+/* Recursive function */
+void insertsort(int* array, int n)
+{
+    if(n>1)
+    {
+	insertsort(array, n-1);
+    }
+    insert(array, n);
+}
+
 int main()
 {
     int n = 10;
@@ -19,18 +41,8 @@ int main()
     }
     cout << endl;
 
-    /* Sort */
-    for(i = 1; i < n; i++)
-    {
-	key = a[i];
-	j = i - 1;
-	while( j >= 0 && key < a[j])
-	{
-	    a[j+1] = a[j];
-	    j--;
-	}
-	a[j+1] = key; // <- When I put "a[j] = key" here, it occured "double free/corruption" error. WHY???
-    }
+    /* call */
+    insertsort(a, n);
 
     /* Display */
     for(i = 0; i < n; i++)
@@ -40,6 +52,5 @@ int main()
     cout << endl;
 
     delete[] a;
-
     return 0; 
 }

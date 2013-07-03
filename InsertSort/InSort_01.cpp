@@ -18,7 +18,7 @@ int main()
         cout << a[i];
     }
     cout << endl;
-
+    // merge test 2
     /* Sort */
     for(int i = 1; i < n; i++)
     {

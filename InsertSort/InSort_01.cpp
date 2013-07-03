@@ -19,11 +19,9 @@ int main()
         cout << a[i];
     }
     cout << endl;
-<<<<<<< HEAD
+    // <<<<<<< HEAD
     // mergeTest
-=======
-    // merge test 2
->>>>>>> origin/master
+    // =======
     /* Sort */
     for(int i = 1; i < n; i++)
     {

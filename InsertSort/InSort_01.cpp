@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <time.h>
 
+
 using namespace std;
 
 // try figuring this one out
@@ -18,7 +19,7 @@ int main()
         cout << a[i];
     }
     cout << endl;
-
+    // mergeTest
     /* Sort */
     for(int i = 1; i < n; i++)
     {

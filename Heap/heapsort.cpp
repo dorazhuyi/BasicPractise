@@ -28,20 +28,44 @@ void build_max_heap(int* array, int heap_size)
 		max_heapify(array,i,heap_size);
 }
 
+void heapsort(int* array, int heap_size)
+{
+	int size_now = heap_size;
+	build_max_heap(array,heap_size);
+	for(int i = (heap_size-1);i>0;i--)
+	{
+		array[0] ^= array[i];
+		array[i] ^= array[0];
+		array[0] ^= array[i];
+		size_now--;
+		max_heapify(array,0,size_now);
+	}
+	
+}
+
+void display(int* array, int heap_size)
+{
+	for(int i=0;i<heap_size;i++)
+		cout << array[i] << " ";
+	cout << endl;
+}
+	
+
 int main()
 {
 	int a[] = {23,17,14,6,13,10,1,5,7,12};
 	int heap_size = 10;
-	for(int i=0;i<heap_size;i++)
-		cout << a[i] << " ";
-	cout << endl;
+	display(&a[0], heap_size);
 
-	//max_heapify(&a[0],0,heap_size);
-	build_max_heap(&a[0],heap_size);
+	//max_heapify(&a[0], 0, heap_size);
+
+	build_max_heap(&a[0], heap_size);
+	cout << "MAX-HEAP: ";
+	display(&a[0], heap_size);
 	
-	for(int i=0;i<heap_size;i++)
-		cout << a[i] << " ";
-	cout << endl;
+	heapsort(&a[0], heap_size);
+	cout << "Sorted: ";
+	display(&a[0], heap_size);
 
 	return 0;
 }

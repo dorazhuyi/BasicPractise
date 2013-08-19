@@ -4,6 +4,15 @@
 
 using namespace std;
 
+void constraction(vector<Vertex> V, vector<Edge> E)
+{
+	while(V.size() > 2)
+	{
+
+	}
+
+}
+
 int main()
 {
 	/* Create Graph */
@@ -22,6 +31,8 @@ int main()
 	/* Check */
 	for(int i=0;i<4;i++)
 		cout << "Vertex: " << V.at(i).Vertex_id() << " Edges: " << V.at(i).Edge_num() << endl;
+
+
 
 	return 0;
 }

@@ -1,8 +1,9 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-void max_heapify(int* array, int i, int heap_size)
+void max_heapify(vector<int>& array, int i, int heap_size)
 {
 	int l = 2*(i+1)-1; // left = 2j; j = index+1;
 	int r = 2*(i+1); // right = 2j + 1; j = index+1;
@@ -22,13 +23,13 @@ void max_heapify(int* array, int i, int heap_size)
 	}
 }
 
-void build_max_heap(int* array, int heap_size)
+void build_max_heap(vector<int>& array, int heap_size)
 {
-	for(int i=(heap_size)/2-1;i>=0;i--)
+	for(int i=heap_size/2-1;i>=0;--i)
 		max_heapify(array,i,heap_size);
 }
 
-void heapsort(int* array, int heap_size)
+void heapsort(vector<int>& array, int heap_size)
 {
 	int size_now = heap_size;
 	build_max_heap(array,heap_size);
@@ -43,10 +44,11 @@ void heapsort(int* array, int heap_size)
 	
 }
 
-void display(int* array, int heap_size)
+void display(vector<int>& array, int heap_size)
 {
-	for(int i=0;i<heap_size;i++)
-		cout << array[i] << " ";
+	vector<int>::iterator it;
+	for(it = array.begin();it != array.end(); ++it)
+		cout << *it << " ";
 	cout << endl;
 }
 	
@@ -54,18 +56,19 @@ void display(int* array, int heap_size)
 int main()
 {
 	int a[] = {23,17,14,6,13,10,1,5,7,12};
-	int heap_size = 10;
-	display(&a[0], heap_size);
+	vector<int> va(a, a+sizeof(a)/sizeof(int)); 
+	int heap_size = va.size();
+	display(va, heap_size);
 
 	//max_heapify(&a[0], 0, heap_size);
 
-	build_max_heap(&a[0], heap_size);
+	build_max_heap(va, heap_size);
 	cout << "MAX-HEAP: ";
-	display(&a[0], heap_size);
+	display(va, heap_size);
 	
-	heapsort(&a[0], heap_size);
+	heapsort(va, heap_size);
 	cout << "Sorted: ";
-	display(&a[0], heap_size);
+	display(va, heap_size);
 
 	return 0;
 }
